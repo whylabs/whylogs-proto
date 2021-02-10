@@ -66,6 +66,11 @@ message HistogramSummary {
 
 }
 
+message ModelSummary {
+string name =1;
+map<string, ColumnSummary> metrics=2;
+}
+
 message QuantileSummary {
   repeated double quantiles = 1;
   repeated double quantile_values = 2;
@@ -97,7 +102,9 @@ message ColumnSummary {
 
 message DatasetSummary {
   DatasetProperties properties = 1;
-  map<string, ColumnSummary> columns = 2;
+  map<string, ColumnSummary> outputs=2;
+  ModelSummary model_summary=2;
+  map<string, ColumnSummary> columns = 3;
 }
 
 message DatasetSummaries {

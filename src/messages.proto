@@ -86,6 +86,13 @@ message SchemaMessage {
   InferredType inferred_type = 2;
 }
 
+
+message ModelMessage {
+string name =1;
+map<string, ColumnMessage> metrics = 1;
+}
+
+
 message ColumnMessage {
   string name = 1;
   Counters counters = 2;
@@ -111,7 +118,9 @@ message DatasetProperties {
 
 message DatasetProfileMessage {
   DatasetProperties properties = 1;
-  map<string, ColumnMessage> columns = 2;
+  map<string, ColumnMessage> ouputs=2;
+  ModelMessage model_message=3;
+  map<string, ColumnMessage> columns = 4;
 }
 
 /**
