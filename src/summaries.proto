@@ -102,9 +102,9 @@ message ColumnSummary {
 
 message DatasetSummary {
   DatasetProperties properties = 1;
-  map<string, ColumnSummary> outputs=2;
-  ModelSummary model_summary=2;
-  map<string, ColumnSummary> columns = 3;
+  map<string, ColumnSummary> outputs = 2;
+  ModelSummary model_summary = 3;
+  map<string, ColumnSummary> columns = 4;
 }
 
 message DatasetSummaries {
