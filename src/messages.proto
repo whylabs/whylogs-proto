@@ -89,7 +89,7 @@ message SchemaMessage {
 
 message ModelMessage {
 string name =1;
-map<string, ColumnMessage> metrics = 1;
+map<string, ColumnMessage> metrics = 2;
 }
 
 
