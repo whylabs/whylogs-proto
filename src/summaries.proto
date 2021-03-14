@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "messages.proto";
 
+option go_package = "github.com/whylabs/whylabs-agent;protobuf";
 option java_package = "com.whylogs.core.message";
 option java_outer_classname = "Summaries";
 option java_multiple_files = true;
