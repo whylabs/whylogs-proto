@@ -13,7 +13,7 @@ message Counters {
   google.protobuf.Int64Value null_count = 3;
 }
 
-message InferredType {
+message DataType {
   enum Type {
     UNKNOWN = 0;
     NULL = 1;
@@ -60,15 +60,16 @@ message FrequentItemsSketchMessage {
 message NumbersMessage {
   VarianceMessage variance = 1;
   oneof numbers {
-    DoublesMessage doubles = 2;
-    LongsMessage longs = 3;
+    DoublesMessage doubles = 2  [deprecated = true];
+    LongsMessage longs = 3 [deprecated = true];
   }
 
   // sketches
   bytes histogram = 4;
-  bytes theta = 5;
-  bytes compact_theta = 6;
-  FrequentNumbersSketchMessage frequent_numbers = 7;
+  bytes theta = 5 [deprecated = true];
+  bytes compact_theta = 6 [deprecated = true];
+  FrequentNumbersSketchMessage frequent_numbers = 7 [deprecated = true];
+  double sum = 8;
 }
 
 message StringsMessage {
@@ -83,7 +84,7 @@ message StringsMessage {
 
 message SchemaMessage {
   map<int32, int64> typeCounts = 1;
-  InferredType inferred_type = 2;
+  DataType inferred_type = 2 [deprecated = true];
 }
 
 message ColumnMessage {
@@ -92,7 +93,7 @@ message ColumnMessage {
   SchemaMessage schema = 3;
   NumbersMessage numbers = 4;
   StringsMessage strings = 5;
-  InferredType inferred_type = 6;
+  DataType inferred_type = 6 [deprecated = true];
   FrequentItemsSketchMessage frequent_items = 7;
   HllSketchMessage cardinality_tracker = 8;
 }

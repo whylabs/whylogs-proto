@@ -49,7 +49,7 @@ message StringsSummary {
 }
 
 message SchemaSummary {
-  InferredType inferred_type = 1;
+  DataType inferred_type = 1;
   map<string, int64> type_counts = 2;
 }
 
